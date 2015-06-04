@@ -537,29 +537,31 @@ function formatPercent(num, precision) {
 //  VERSION_FILES = ['./package.json', './component.json', './bower.json'];
 //VERSION_FILES_JS = [SRC, 'package.js'];
 //
-//gulp.task('test', ['browserify'], function(cov) {
-//  var reporters = ['html'];
-//
-//  if (cov) {
-//    reporters.push('text');
-//  } else {
-//    reporters.push('text-summary');
-//  }
-//
-//  return gulp.src(['*.js'])
-//    .pipe(istanbul())
-//    .pipe(istanbul.hookRequire())
-//    .on('finish', function () {
-//      return gulp.src(['tests/*.js'])
-//        .pipe(mocha({
-//          ui: 'qunit',
-//          reporter: 'dot'
-//        }))
-//        .pipe(istanbul.writeReports({
-//          reporters: reporters
-//        }));
-//    });
-//});
+gulp.task('test', ['browserify'], function(cov) {
+  var reporters = ['html'];
+
+  if (cov) {
+    reporters.push('text');
+  } else {
+    reporters.push('text-summary');
+  }
+
+  return gulp.src(['*.js'])
+    .pipe(istanbul())
+    .pipe(istanbul.hookRequire())
+    .on('finish', function () {
+      return gulp.src(['tests/*.js'])
+        .pipe(
+          mocha({
+            ui: 'qunit',
+            reporter: 'dot'
+          })
+        )
+        .pipe(istanbul.writeReports({
+          reporters: reporters
+        }));
+    });
+});
 //
 //gulp.task('bench', ['browserify'], function(func) {
 //  func = func || '*';
