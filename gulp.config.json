@@ -1,0 +1,28 @@
+{
+  "client": "./",
+  "server": "./src/server/",
+  "api": "/api",
+  "test": "./test/",
+  "html": "./src/client/**/*.html",
+  "htmltemplates": "./src/client/app/**/*.html",
+  "vendorjs": [
+  ],
+  "vendorcss": [
+  ],
+  "css": [
+  ],
+  "js": [
+    "./index.js"
+  ],
+  "specs": [
+    "./test/specs/*.spec.js"
+  ],
+  "nodejs": [
+  ],
+  "fonts": [
+  ],
+  "images": [
+  ],
+  "report": "./report/",
+  "build": "./build/"
+}

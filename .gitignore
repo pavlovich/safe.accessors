@@ -1,0 +1,6 @@
+.meteor/local
+.meteor/meteorite
+.idea
+bower_components/**/*
+node_modules/**/*
+build/**/*

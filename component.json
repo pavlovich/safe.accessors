@@ -1,0 +1,24 @@
+{
+  "name": "safeaccessors",
+  "repo": "pavlovich/safeaccessors",
+  "description": "Safely get and set nested attribute values and call functions.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "keywords": [
+    "accessors",
+    "getters",
+    "setters"
+  ],
+  "dependencies": {
+    "lodash/lodash": "*"
+  },
+  "development": {},
+  "main": "index.js",
+  "scripts": [
+    "index.js",
+    "isVoid.js",
+    "safeGet.js",
+    "safeSet.js",
+    "safeCall.js"
+  ]
+}
