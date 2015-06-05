@@ -3,6 +3,4 @@ node_js:
   - "0.12"
   - "iojs"
 before_install:
-  - npm install -g bower
-  - npm install -g grunt-cli
   - curl -L https://raw.githubusercontent.com/arunoda/travis-ci-meteor-packages/master/configure.sh | /bin/sh
