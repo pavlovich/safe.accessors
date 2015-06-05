@@ -13,20 +13,20 @@
     <section class="page-header">
       <h1 class="project-name">Safeaccessors</h1>
       <h2 class="project-tagline">Provide a clean way to &#39;safely&#39; get and set nested attribute values</h2>
-      <a href="https://github.com/pavlovich/safeaccessors" class="btn">View on GitHub</a>
-      <a href="https://github.com/pavlovich/safeaccessors/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/pavlovich/safeaccessors/tarball/master" class="btn">Download .tar.gz</a>
+      <a href="https://github.com/pavlovich/safe.accessors" class="btn">View on GitHub</a>
+      <a href="https://github.com/pavlovich/safe.accessors/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/pavlovich/safe.accessors/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
     <section class="main-content">
       <p></p>
 
-<p>The stable release documentation can be found here <a href="https://pavlovich.github.io/safeaccessors/">https://pavlovich.github.io/safeaccessors/</a></p>
+<p>The stable release documentation can be found here <a href="https://pavlovich.github.io/safe.accessors/">https://pavlovich.github.io/safe.accessors/</a></p>
 
 <p></p>
 
 <h1>
-<a id="safeaccessors-" class="anchor" href="#safeaccessors-" aria-hidden="true"><span class="octicon octicon-link"></span></a>safeaccessors <a href="http://travis-ci.org/pavlovich/safeaccessors"><img src="https://secure.travis-ci.org/pavlovich/safeaccessors.png?branch=master" alt="Build Status"></a>
+<a id="safeaccessors-" class="anchor" href="#safeaccessors-" aria-hidden="true"><span class="octicon octicon-link"></span></a>safe.accessors <a href="http://travis-ci.org/pavlovich/safe.accessors"><img src="https://secure.travis-ci.org/pavlovich/safe.accessors.png?branch=master" alt="Build Status"></a>
 </h1>
 
 <p>Javascript lacks a way to safely get and set values of nested attributes or a way to call functions with value retrieved from a nested structure.
@@ -40,19 +40,19 @@ This is an attempt to fill that gap. </p>
 
 <p>Install from npm</p>
 
-<pre><code>npm install safeaccessors
+<pre><code>npm install safe.accessors
 </code></pre>
 
 <p>Require individual functions</p>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> safeGet <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>safeaccessors/safeGet<span class="pl-pds">"</span></span>);
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> safeGet <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>safe.accessors/safeGet<span class="pl-pds">"</span></span>);
 
 safeGet(myObj, <span class="pl-s"><span class="pl-pds">"</span>x.y.z.a.b.c<span class="pl-pds">"</span></span>, <span class="pl-k">default</span>, allowNull);
 <span class="pl-c">// =&gt; xxx</span></pre></div>
 
 <p>or load the full library to enable chaining</p>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> sa <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>safeaccessors<span class="pl-pds">"</span></span>);
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> sa <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>safe.accessors<span class="pl-pds">"</span></span>);
 
 sa(x).trim().capitalize().<span class="pl-c1">value</span>();
 <span class="pl-c">// =&gt; "xxx"</span></pre></div>
@@ -66,7 +66,7 @@ use.</p>
 
 <p>From your <a href="http://www.meteor.com/">Meteor</a> project folder</p>
 
-<div class="highlight highlight-shell"><pre>    meteor add safeaccessors:safeaccessors</pre></div>
+<div class="highlight highlight-shell"><pre>    meteor add safe.accessors:safe.accessors</pre></div>
 
 <p>and you'll be able to access the library with the <strong><em>sa</em></strong> global from both the server and the client.</p>
 
@@ -97,10 +97,10 @@ the library from the <strong><em>s</em></strong> global.</p>
 
 <ul>
 <li>
-<a href="https://raw.github.com/pavlovich/safeaccessors/master/dist/safeaccessors.js">Development version</a> <em>Uncompressed with Comments</em>
+<a href="https://raw.github.com/pavlovich/safe.accessors/master/dist/safe.accessors.js">Development version</a> <em>Uncompressed with Comments</em>
 </li>
 <li>
-<a href="https://github.com/pavlovich/safeaccessors/raw/master/dist/safeaccessors.min.js">Production version</a> <em>Minified</em>
+<a href="https://github.com/pavlovich/safe.accessors/raw/master/dist/safe.accessors.min.js">Production version</a> <em>Minified</em>
 </li>
 </ul>
 
@@ -201,7 +201,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</p>
 
       <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/pavlovich/safeaccessors">Safeaccessors</a> is maintained by <a href="https://github.com/pavlovich">pavlovich</a>.</span>
+        <span class="site-footer-owner"><a href="https://github.com/pavlovich/safe.accessors">Safeaccessors</a> is maintained by <a href="https://github.com/pavlovich">pavlovich</a>.</span>
 
         <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
