@@ -2,7 +2,15 @@
  * Created by peter.pavlovich on 5/19/15.
  */
 
+var chai = require('chai');
+
+var assert = chai.assert,
+  expect = chai.expect,
+  should = chai.should();
+
 var _ = require('lodash');
+
+require('../../index').install(_);
 
 describe('The safeGet utility function,', function(){
 
@@ -129,6 +137,16 @@ describe('The safeGet utility function,', function(){
     describe('given a non-null, empty path and no default,', function(){
       it('should return undefined', function(){
         expect(_.safeGet(undefined, '')).to.equal(undefined);
+      });
+    });
+    describe('given a non-null, empty path a null default and set to allow null returns,', function(){
+      it('should return null', function(){
+        expect(_.safeGet(undefined, 'test', null, true)).to.equal(null);
+      });
+    });
+    describe('given a non-null, empty path a null default and set to NOT allow null returns,', function(){
+      it('should return undefined', function(){
+        expect(_.safeGet(undefined, 'test', null, false)).to.equal(undefined);
       });
     });
     describe('given a non-null, empty path and null default,', function(){
@@ -327,18 +345,38 @@ describe('The safeGet utility function,', function(){
       });
     });
     describe('given a non-empty, two-part, an undefined and allowing undefineds,', function(){
-      it('should return the undefined', function(){
+      it('should return undefined', function(){
         expect(_.safeGet(TEST, 'unknown.unknown2', undefined, false, true)).to.equal(undefined);
       });
     });
     describe('given a non-empty, two-part, first known and second unknown path, an undefined default and allowing undefineds,', function(){
-      it('should return the undefined', function(){
+      it('should return undefined', function(){
         expect(_.safeGet(TEST, 'one.unknown', undefined, false, true)).to.equal(undefined);
       });
     });
     describe('given a non-empty, two-part, first known and second unknown path, an undefined default and allowing undefineds,', function(){
-      it('should return the undefined', function(){
+      it('should return undefined', function(){
         expect(_.safeGet(TEST, 'one.unknown', DEFAUT_VAL, false, true)).to.equal(undefined);
+      });
+    });
+    describe('given a non-empty, two-part, first known and second unknown path, a null default, not allowing nulls or undefineds,', function(){
+      it('should return undefined', function(){
+        expect(_.safeGet(TEST, 'one.unknown', null)).to.equal(undefined);
+      });
+    });
+    describe('given a non-empty, two-part, first known and second unknown path, a null default, allowing nulls but not undefineds,', function(){
+      it('should return the null', function(){
+        expect(_.safeGet(TEST, 'one.unknown', null, true)).to.equal(null);
+      });
+    });
+    describe('given a non-empty, two-part, first known and second unknown path, a valid default value,', function(){
+      it('should return the default value', function(){
+        expect(_.safeGet(TEST, 'one.unknown', DEFAUT_VAL)).to.equal(DEFAUT_VAL);
+      });
+    });
+    describe('given a non-empty, two-part, first known and second unknown path, an undefined default value,', function(){
+      it('should return undefined', function(){
+        expect(_.safeGet(TEST, 'one.unknown', undefined)).to.equal(undefined);
       });
     });
     describe('given a non-empty, two-part, first known and second unknown path, an undefined default and not allowing undefineds,', function(){

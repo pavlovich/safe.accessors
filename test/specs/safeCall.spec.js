@@ -2,7 +2,16 @@
  * Created by peter.pavlovich on 5/19/15.
  */
 
+
+var chai = require('chai');
+
+var assert = chai.assert,
+  expect = chai.expect,
+  should = chai.should();
+
 var _ = require('lodash');
+
+require('../../index').install(_);
 
 describe('The safeCall utility function,', function(){
 
