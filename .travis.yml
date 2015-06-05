@@ -3,4 +3,5 @@ node_js:
   - "0.12"
   - "iojs"
 before_install:
+  - npm install bower
   - curl -L https://raw.githubusercontent.com/arunoda/travis-ci-meteor-packages/master/configure.sh | /bin/sh
