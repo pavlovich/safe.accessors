@@ -7,7 +7,7 @@
   "main": "./index.js",
   "scripts": {
     "init": "npm install",
-    "install": "bower install",
+    "install": "npm install",
     "test": "gulp test"
   },
   "repository": {
