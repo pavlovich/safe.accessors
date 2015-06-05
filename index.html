@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Safeaccessors by pavlovich</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Safeaccessors</h1>
+      <h2 class="project-tagline">Provide a clean way to &#39;safely&#39; get and set nested attribute values</h2>
+      <a href="https://github.com/pavlovich/safeaccessors" class="btn">View on GitHub</a>
+      <a href="https://github.com/pavlovich/safeaccessors/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/pavlovich/safeaccessors/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p></p>
+
+<p>The stable release documentation can be found here <a href="https://pavlovich.github.io/safeaccessors/">https://pavlovich.github.io/safeaccessors/</a></p>
+
+<p></p>
+
+<h1>
+<a id="safeaccessors-" class="anchor" href="#safeaccessors-" aria-hidden="true"><span class="octicon octicon-link"></span></a>safeaccessors <a href="http://travis-ci.org/pavlovich/safeaccessors"><img src="https://secure.travis-ci.org/pavlovich/safeaccessors.png?branch=master" alt="Build Status"></a>
+</h1>
+
+<p>Javascript lacks a way to safely get and set values of nested attributes or a way to call functions with value retrieved from a nested structure.
+This is an attempt to fill that gap. </p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a id="in-nodejs-and-browserify" class="anchor" href="#in-nodejs-and-browserify" aria-hidden="true"><span class="octicon octicon-link"></span></a>In Node.js and Browserify</h3>
+
+<p>Install from npm</p>
+
+<pre><code>npm install safeaccessors
+</code></pre>
+
+<p>Require individual functions</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> safeGet <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>safeaccessors/safeGet<span class="pl-pds">"</span></span>);
+
+safeGet(myObj, <span class="pl-s"><span class="pl-pds">"</span>x.y.z.a.b.c<span class="pl-pds">"</span></span>, <span class="pl-k">default</span>, allowNull);
+<span class="pl-c">// =&gt; xxx</span></pre></div>
+
+<p>or load the full library to enable chaining</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> sa <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>safeaccessors<span class="pl-pds">"</span></span>);
+
+sa(x).trim().capitalize().<span class="pl-c1">value</span>();
+<span class="pl-c">// =&gt; "xxx"</span></pre></div>
+
+<p>but especially when using with <a href="http://browserify.org/">Browserify</a> the individual function approach
+is recommended because using it you only add those functions to your bundle you
+use.</p>
+
+<h3>
+<a id="in-meteor" class="anchor" href="#in-meteor" aria-hidden="true"><span class="octicon octicon-link"></span></a>In Meteor</h3>
+
+<p>From your <a href="http://www.meteor.com/">Meteor</a> project folder</p>
+
+<div class="highlight highlight-shell"><pre>    meteor add safeaccessors:safeaccessors</pre></div>
+
+<p>and you'll be able to access the library with the <strong><em>sa</em></strong> global from both the server and the client.</p>
+
+<div class="highlight highlight-javascript"><pre>
+<span class="pl-k">var</span> allowNulls <span class="pl-k">=</span> <span class="pl-c1">false</span>;
+sa.safeGet(obj, <span class="pl-s"><span class="pl-pds">'</span>a.b.c.d.e<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>default value<span class="pl-pds">'</span></span>, allowNulls);
+<span class="pl-c">// =&gt; default value</span>
+
+s(<span class="pl-s"><span class="pl-pds">"</span>   epeli  <span class="pl-pds">"</span></span>).trim().capitalize().<span class="pl-c1">value</span>();
+<span class="pl-c">// =&gt; "Epeli"</span></pre></div>
+
+<h3>
+<a id="others" class="anchor" href="#others" aria-hidden="true"><span class="octicon octicon-link"></span></a>Others</h3>
+
+<p>The <code>dist/underscore.string.js</code> file is an <a href="https://github.com/umdjs/umd">UMD</a> build. You can load it using
+an AMD loader such as <a href="http://requirejs.org/">RequireJS</a> or just stick it to a web page and access
+the library from the <strong><em>s</em></strong> global.</p>
+
+<h3>
+<a id="underscorejslo-dash-integration" class="anchor" href="#underscorejslo-dash-integration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Underscore.js/Lo-Dash integration</h3>
+
+<p>It is possible use as Underscore.js/Lo-Dash extension</p>
+
+<div class="highlight highlight-javascript"><pre>_.mixin(sa.exports());</pre></div>
+
+<h2>
+<a id="download" class="anchor" href="#download" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download</h2>
+
+<ul>
+<li>
+<a href="https://raw.github.com/pavlovich/safeaccessors/master/dist/safeaccessors.js">Development version</a> <em>Uncompressed with Comments</em>
+</li>
+<li>
+<a href="https://github.com/pavlovich/safeaccessors/raw/master/dist/safeaccessors.min.js">Production version</a> <em>Minified</em>
+</li>
+</ul>
+
+<h2>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h2>
+
+<h3>
+<a id="individual-functions" class="anchor" href="#individual-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Individual functions</h3>
+
+<h4>
+<a id="safegetobject--path-defaultvaluenull-allownullsfalse--object" class="anchor" href="#safegetobject--path-defaultvaluenull-allownullsfalse--object" aria-hidden="true"><span class="octicon octicon-link"></span></a>safeGet(object, [ path='', defaultValue=null, allowNulls=false]) =&gt; object</h4>
+
+<p>Traverses the supplied chain of attributes of the provided object until it reaches the target (final) attribute or hits a 'null'. If it successfully reaches the end, the value of the final attribute is returned. If a null is encountered or if the final value is null, then, if nulls are allowed, a null is returned. Otherwise, the default value is returned.</p>
+
+<div class="highlight highlight-javascript"><pre>safeGet({something<span class="pl-k">:</span> {somethingElse<span class="pl-k">:</span> {theFinalAttribute<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>}, <span class="pl-s"><span class="pl-pds">'</span>something.somethingElse.theFinalAttribute<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>default value<span class="pl-pds">'</span></span>, <span class="pl-c1">false</span>);
+<span class="pl-c">// =&gt; "hello"</span>
+
+safeGet({something<span class="pl-k">:</span> {somethingElse<span class="pl-k">:</span> {theFinalAttribute<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>}, <span class="pl-s"><span class="pl-pds">'</span>something.somethingElseXX.theFinalAttributeXXX<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>default value<span class="pl-pds">'</span></span>);
+<span class="pl-c">// =&gt; "default value"</span>
+
+safeGet({something<span class="pl-k">:</span> {somethingElse<span class="pl-k">:</span> {theFinalAttribute<span class="pl-k">:</span> <span class="pl-c1">null</span>}, <span class="pl-s"><span class="pl-pds">'</span>something.somethingElse.theFinalAttribute<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>default value<span class="pl-pds">'</span></span>, <span class="pl-c1">true</span>);
+<span class="pl-c">// =&gt; null</span></pre></div>
+
+<h4>
+<a id="safesetobject--path---object" class="anchor" href="#safesetobject--path---object" aria-hidden="true"><span class="octicon octicon-link"></span></a>safeSet(object, [ path='' ]) =&gt; object</h4>
+
+<p>Sets the value of the given path relative to the supplied object to the provided value.</p>
+
+<div class="highlight highlight-javascript"><pre>safeSet({}, <span class="pl-s"><span class="pl-pds">"</span>a.b.c.d<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>);
+<span class="pl-c">// =&gt; 'hello'</span>
+
+safeSet({a<span class="pl-k">:</span> {b<span class="pl-k">:</span> {c<span class="pl-k">:</span> {d<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>yes<span class="pl-pds">'</span></span>}}}}, <span class="pl-s"><span class="pl-pds">"</span>a.b.c.d<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>);
+<span class="pl-c">// =&gt; 'hello'</span>
+
+safeSet({a<span class="pl-k">:</span> {b<span class="pl-k">:</span> {c<span class="pl-k">:</span> {d<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>yes<span class="pl-pds">'</span></span>}}}}, <span class="pl-s"><span class="pl-pds">"</span>a.b.c.d<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>, <span class="pl-c1">false</span>);
+<span class="pl-c">// =&gt; 'yes'</span>
+</pre></div>
+
+<h4>
+<a id="safecallobject-path-defaultvalue-functiontocall-context-allownull-allowundefined-defaultreturn-allownullresult-allowundefinedresult--string" class="anchor" href="#safecallobject-path-defaultvalue-functiontocall-context-allownull-allowundefined-defaultreturn-allownullresult-allowundefinedresult--string" aria-hidden="true"><span class="octicon octicon-link"></span></a>safeCall(object, [path='', defaultValue, functionToCall, context, allowNull, allowUndefined, defaultReturn, allowNullResult, allowUndefinedResult]) =&gt; string</h4>
+
+<p>Converts first letter of the string to uppercase. If <code>true</code> is passed as second argument the rest
+of the string will be converted to lower case.</p>
+
+<div class="highlight highlight-javascript"><pre>safeCall(<span class="pl-s"><span class="pl-pds">"</span>foo Bar<span class="pl-pds">"</span></span>);
+<span class="pl-c">// =&gt; "Foo Bar"</span>
+
+safeCall(<span class="pl-s"><span class="pl-pds">"</span>FOO Bar<span class="pl-pds">"</span></span>, <span class="pl-c1">true</span>);
+<span class="pl-c">// =&gt; "Foo bar"</span></pre></div>
+
+<h4>
+<a id="isvoidobject--boolean" class="anchor" href="#isvoidobject--boolean" aria-hidden="true"><span class="octicon octicon-link"></span></a>isVoid(object) =&gt; boolean</h4>
+
+<p>Returns true if the supplied object is undefined or null, false otherwise.</p>
+
+<div class="highlight highlight-javascript"><pre>isVoid(<span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>);
+<span class="pl-c">// =&gt; false</span>
+
+isVoid(<span class="pl-c1">null</span>);
+<span class="pl-c">// =&gt; true</span>
+
+isVoid(<span class="pl-c1">undefined</span>);
+<span class="pl-c">// =&gt; true</span></pre></div>
+
+<h2>
+<a id="maintainers" class="anchor" href="#maintainers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Maintainers</h2>
+
+<p>This library is maintained by</p>
+
+<ul>
+<li>Peter Pavlovich – <strong><em><a href="https://github.com/pavlovich">@pavlovich</a></em></strong>
+</li>
+</ul>
+
+<h2>
+<a id="licence" class="anchor" href="#licence" aria-hidden="true"><span class="octicon octicon-link"></span></a>Licence</h2>
+
+<p>The MIT License</p>
+
+<p>Copyright (c) 2015 Peter Pavlovich <a href="mailto:pavlovich@gmail.com">pavlovich@gmail.com</a></p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/pavlovich/safeaccessors">Safeaccessors</a> is maintained by <a href="https://github.com/pavlovich">pavlovich</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
