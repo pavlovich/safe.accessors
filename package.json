@@ -6,8 +6,8 @@
   "license": "MIT",
   "main": "./index.js",
   "scripts": {
-    "init": "npm install",
-    "install": "bower install",
+    "init": "bower install",
+    "install": "npm install",
     "test": "gulp test"
   },
   "repository": {
