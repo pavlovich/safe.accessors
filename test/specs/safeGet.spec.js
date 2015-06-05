@@ -10,7 +10,7 @@ var assert = chai.assert,
 
 var _ = require('lodash');
 
-require('../../index').install(_);
+require('../../index');
 
 describe('The safeGet utility function,', function(){
 

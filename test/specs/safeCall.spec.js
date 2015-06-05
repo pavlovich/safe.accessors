@@ -11,7 +11,7 @@ var assert = chai.assert,
 
 var _ = require('lodash');
 
-require('../../index').install(_);
+require('../../index');
 
 describe('The safeCall utility function,', function(){
 
