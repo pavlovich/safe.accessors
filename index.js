@@ -49,7 +49,7 @@
     this._wrapped = value;
   }
 
-  sa.VERSION = '1.0.0';
+  sa.VERSION = '1.0.1';
 
   sa.safeGet  = require('./safeGet');
   sa.safeSet  = require('./safeSet');
