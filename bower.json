@@ -1,0 +1,33 @@
+{
+  "name": "safeaccessors",
+  "version": "1.0.0",
+  "authors": [
+    "Peter Pavlovich <pavlovich@gmail.com>"
+  ],
+  "homepage": "http://pavlovich.github.com/safeaccessors/",
+  "main": "./dist/safeaccessors.js",
+  "description": "Safely get and set nested attribute values and call functions.",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "accessors",
+    "getters",
+    "setters"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pavlovich/safeaccessors.git"
+  },
+  "dependencies": {
+    "lodash": "~3.6.0"
+  }
+}
