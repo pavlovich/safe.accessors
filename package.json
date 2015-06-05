@@ -1,5 +1,5 @@
 {
-  "name": "safeaccessors",
+  "name": "safe.accessors",
   "version": "1.0.0",
   "description": "",
   "author": "Peter Pavlovich",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pavlovich/safeaccessors.git"
+    "url": "https://github.com/pavlovich/safe.accessors.git"
   },
   "dependencies": {
     "bower": "^1.4.1",

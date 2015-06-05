@@ -16,8 +16,8 @@ var gulp = require('gulp-param')(require('gulp'), process.argv),
   browserify = require('gulp-browserify'),
   SRC = 'index.js',
   DEST = 'dist',
-  SRC_COMPILED = 'safeaccessors.js',
-  MIN_FILE = 'safeaccessors.min.js',
+  SRC_COMPILED = 'safe.accessors.js',
+  MIN_FILE = 'safe.accessors.min.js',
   VERSION_FILES = ['./package.json', './component.json', './bower.json'];
 VERSION_FILES_JS = [SRC, 'package.js'];
 
@@ -56,7 +56,7 @@ gulp.task('bench', ['browserify'], function(func) {
 gulp.task('browserify', function() {
   return gulp.src(['index.js'])
     .pipe(browserify())
-    .pipe(rename('safeaccessors.js'))
+    .pipe(rename('safe.accessors.js'))
     .pipe(gulp.dest(DEST));
 });
 

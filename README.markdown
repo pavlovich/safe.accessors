@@ -1,15 +1,15 @@
 <span class="github-only">
 
-The stable release documentation can be found here https://pavlovich.github.io/safeaccessors/
+The stable release documentation can be found here https://pavlovich.github.io/safe.accessors/
 
 </span>
 
-# safeaccessors [![Build Status](https://secure.travis-ci.org/pavlovich/safeaccessors.png?branch=master)](http://travis-ci.org/pavlovich/safeaccessors) #
+# safe.accessors [![Build Status](https://secure.travis-ci.org/pavlovich/safe.accessors.png?branch=master)](http://travis-ci.org/pavlovich/safe.accessors) #
 
 Javascript lacks a way to safely get and set values of nested attributes or a way to call functions with value retrieved from a nested structure.
 This is an attempt to fill that gap. 
 
-[c]: https://github.com/pavlovich/safeaccessors/blob/master/CHANGELOG.markdown#300
+[c]: https://github.com/pavlovich/safe.accessors/blob/master/CHANGELOG.markdown#300
 
 ## Usage
 
@@ -17,12 +17,12 @@ This is an attempt to fill that gap.
 
 Install from npm
 
-    npm install safeaccessors
+    npm install safe.accessors
 
 Require individual functions
 
 ```javascript
-var safeGet = require("safeaccessors/safeGet");
+var safeGet = require("safe.accessors/safeGet");
 
 safeGet(myObj, "x.y.z.a.b.c", default, allowNull);
 // => xxx
@@ -31,7 +31,7 @@ safeGet(myObj, "x.y.z.a.b.c", default, allowNull);
 or load the full library to enable chaining
 
 ```javascript
-var sa = require("safeaccessors");
+var sa = require("safe.accessors");
 
 sa(x).trim().capitalize().value();
 // => "xxx"
@@ -48,7 +48,7 @@ use.
 From your [Meteor][] project folder
 
 ```shell
-    meteor add safeaccessors:safeaccessors
+    meteor add safe.accessors:safe.accessors
 ```
 
 and you'll be able to access the library with the ***sa*** global from both the server and the client.
@@ -84,8 +84,8 @@ _.mixin(sa.exports());
 
 ## Download
 
-  * [Development version](https://raw.github.com/pavlovich/safeaccessors/master/dist/safeaccessors.js) *Uncompressed with Comments*
-  * [Production version](https://github.com/pavlovich/safeaccessors/raw/master/dist/safeaccessors.min.js) *Minified*
+  * [Development version](https://raw.github.com/pavlovich/safe.accessors/master/dist/safe.accessors.js) *Uncompressed with Comments*
+  * [Production version](https://github.com/pavlovich/safe.accessors/raw/master/dist/safe.accessors.min.js) *Minified*
 
 ## API
 
