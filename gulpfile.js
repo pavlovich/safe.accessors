@@ -30,7 +30,7 @@ gulp.task('test',  function(cov) {
     reporters.push('text-summary');
   }
 
-  return gulp.src(['index.js'])
+  return gulp.src([SRC])
     .pipe(istanbul())
     .pipe(istanbul.hookRequire())
     .on('finish', function () {
@@ -54,9 +54,9 @@ gulp.task('bench', ['browserify'], function(func) {
 });
 
 gulp.task('browserify', function() {
-  return gulp.src(['index.js'])
+  return gulp.src([SRC])
     .pipe(browserify())
-    .pipe(rename('safe.accessors.js'))
+    .pipe(rename(SRC_COMPILED))
     .pipe(gulp.dest(DEST));
 });
 
@@ -87,8 +87,13 @@ gulp.task('bump', ['bump-in-js'], function(semver) {
 });
 
 gulp.task('build', function() {
-  gulp.src(DEST + '/' + SRC_COMPILED)
-    .pipe(uglify())
-    .pipe(rename(MIN_FILE))
-    .pipe(gulp.dest(DEST));
+  return gulp.src([SRC])
+    .pipe(rename(SRC_COMPILED))
+    .pipe(gulp.dest(DEST))
+    .on('finish', function () {
+      gulp.src(DEST + '/' + SRC_COMPILED)
+        .pipe(uglify())
+        .pipe(rename(MIN_FILE))
+        .pipe(gulp.dest(DEST))
+    });
 });

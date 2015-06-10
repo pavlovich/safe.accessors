@@ -1,10 +1,8 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-(function (global){
 /**
  * safe.accessors (c) 2015 Peter Pavlovich <pavlovich@gmail.com>
  *  safe.accessors is freely distributable under the terms of the MIT license.
  *  Documentation: https://github.com/pavlovich/safe.accessors
- *  Version '1.0.4'
+ *  Version '1.0.6'
  */
 
 ;(function() {
@@ -19,24 +17,20 @@
     'object': true
   };
 
-  var detectFreeVariable = function detectFreeVariable(variable, varName){
-    return objectTypes[typeof variable] && variable && !variable[varName] && variable;
-  };
-
   /** Detect free variable `exports`. */
-  var freeExports = detectFreeVariable(exports, 'nodeType');
+  var freeExports = objectTypes[typeof exports] && exports && !exports.nodeType && exports;
 
   /** Detect free variable `module`. */
-  var freeModule = detectFreeVariable(module, 'nodeType');
+  var freeModule = objectTypes[typeof module] && module && !module.nodeType && module;
 
   /** Detect free variable `global` from Node.js. */
   var freeGlobal = freeExports && freeModule && typeof global == 'object' && global;
 
   /** Detect free variable `self`. */
-  var freeSelf = detectFreeVariable(self, 'Object');
+  var freeSelf = objectTypes[typeof self] && self && self.Object && self;
 
   /** Detect free variable `window`. */
-  var freeWindow = detectFreeVariable(window, 'Object');
+  var freeWindow = objectTypes[typeof window] && window && window.Object && window;
 
   /** Detect the popular CommonJS extension `module.exports`. */
   var moduleExports = freeModule && freeModule.exports === freeExports && freeExports;
@@ -170,7 +164,7 @@
     return returnValueSet ? result : target;
   };
 
-  sa.VERSION = '1.0.4';
+  sa.VERSION = '1.0.6';
   sa.isVoid   = isVoid;
   sa.safeGet  = safeGet;
   sa.safeSet  = safeSet;
@@ -189,7 +183,8 @@
     root.sa = sa;
   }
 
-}.call(this));
+  if(typeof _ !== 'undefined'){
+    sa.install(_);
+  }
 
-}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}]},{},[1])
+}.call(this));
