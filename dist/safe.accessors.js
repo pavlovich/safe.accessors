@@ -9,26 +9,34 @@
 
 ;(function() {
 
+  if(typeof _ == 'undefined'){
+    throw 'safe.accessors requires lowdash or underscore.';
+  }
+
   /** Used to determine if values are of the language type `Object`. */
   var objectTypes = {
     'function': true,
     'object': true
   };
 
+  var detectFreeVariable = function detectFreeVariable(variable, varName){
+    return objectTypes[typeof variable] && variable && !variable[varName] && variable;
+  };
+
   /** Detect free variable `exports`. */
-  var freeExports = objectTypes[typeof exports] && exports && !exports.nodeType && exports;
+  var freeExports = detectFreeVariable(exports, 'nodeType');
 
   /** Detect free variable `module`. */
-  var freeModule = objectTypes[typeof module] && module && !module.nodeType && module;
+  var freeModule = detectFreeVariable(module, 'nodeType');
 
   /** Detect free variable `global` from Node.js. */
   var freeGlobal = freeExports && freeModule && typeof global == 'object' && global;
 
   /** Detect free variable `self`. */
-  var freeSelf = objectTypes[typeof self] && self && self.Object && self;
+  var freeSelf = detectFreeVariable(self, 'Object');
 
   /** Detect free variable `window`. */
-  var freeWindow = objectTypes[typeof window] && window && window.Object && window;
+  var freeWindow = detectFreeVariable(window, 'Object');
 
   /** Detect the popular CommonJS extension `module.exports`. */
   var moduleExports = freeModule && freeModule.exports === freeExports && freeExports;
@@ -41,13 +49,7 @@
    */
   var root = freeGlobal || ((freeWindow !== (this && this.window)) && freeWindow) || freeSelf || this;
 
-  function sa(value) {
-    /* jshint validthis: true */
-    if (!(this instanceof sa)) {
-      return new sa(value);
-    }
-    this._wrapped = value;
-  }
+  var sa = {};
 
   var isVoid = function isVoid(value){
     return _.isNull(value) || _.isUndefined(value);
@@ -168,7 +170,6 @@
     return returnValueSet ? result : target;
   };
 
-
   sa.VERSION = '1.0.4';
   sa.isVoid   = isVoid;
   sa.safeGet  = safeGet;
@@ -182,22 +183,9 @@
     obj.safeCall = sa.safeCall;
   };
 
-  // Implement chaining
-  sa.prototype = {
-    value: function value() {
-      return this._wrapped;
-    }
-  };
-
-  if(typeof _ !== 'undefined') {
-    sa.install(_);
-  }
-
   if(freeModule) {
     freeModule.exports = sa;
-  }
-
-  if(root) {
+  } else {
     root.sa = sa;
   }
 

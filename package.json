@@ -1,6 +1,6 @@
 {
   "name": "safe.accessors",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "author": "Peter Pavlovich",
   "license": "MIT",
@@ -12,8 +12,7 @@
     "type": "git",
     "url": "https://github.com/pavlovich/safe.accessors.git"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "directories": {
     "lib": "./"
   },

@@ -21,7 +21,7 @@ var gulp = require('gulp-param')(require('gulp'), process.argv),
   VERSION_FILES = ['./package.json', './component.json', './bower.json'];
 VERSION_FILES_JS = [SRC, 'package.js'];
 
-gulp.task('test', ['browserify'], function(cov) {
+gulp.task('test',  function(cov) {
   var reporters = ['html'];
 
   if (cov) {

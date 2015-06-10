@@ -2,10 +2,14 @@
  * safe.accessors (c) 2015 Peter Pavlovich <pavlovich@gmail.com>
  *  safe.accessors is freely distributable under the terms of the MIT license.
  *  Documentation: https://github.com/pavlovich/safe.accessors
- *  Version '1.0.4'
+ *  Version '1.0.5'
  */
 
 ;(function() {
+
+  if(typeof _ == 'undefined'){
+    throw 'safe.accessors requires lowdash or underscore.';
+  }
 
   /** Used to determine if values are of the language type `Object`. */
   var objectTypes = {
@@ -39,13 +43,7 @@
    */
   var root = freeGlobal || ((freeWindow !== (this && this.window)) && freeWindow) || freeSelf || this;
 
-  function sa(value) {
-    /* jshint validthis: true */
-    if (!(this instanceof sa)) {
-      return new sa(value);
-    }
-    this._wrapped = value;
-  }
+  var sa = {};
 
   var isVoid = function isVoid(value){
     return _.isNull(value) || _.isUndefined(value);
@@ -166,8 +164,7 @@
     return returnValueSet ? result : target;
   };
 
-
-  sa.VERSION = '1.0.4';
+  sa.VERSION = '1.0.5';
   sa.isVoid   = isVoid;
   sa.safeGet  = safeGet;
   sa.safeSet  = safeSet;
@@ -180,23 +177,14 @@
     obj.safeCall = sa.safeCall;
   };
 
-  // Implement chaining
-  sa.prototype = {
-    value: function value() {
-      return this._wrapped;
-    }
-  };
-
-  if(typeof _ !== 'undefined') {
-    sa.install(_);
-  }
-
   if(freeModule) {
     freeModule.exports = sa;
+  } else {
+    root.sa = sa;
   }
 
-  if(root) {
-    root.sa = sa;
+  if(typeof _ !== 'undefined'){
+    sa.install(_);
   }
 
 }.call(this));

@@ -14,7 +14,6 @@ _ = require('lodash');
 require('../../index');
 
 
-
 describe('The safeCall utility function,', function(){
 
   var NULL = "NULLX";
