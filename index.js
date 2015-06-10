@@ -2,7 +2,7 @@
  * safe.accessors (c) 2015 Peter Pavlovich <pavlovich@gmail.com>
  *  safe.accessors is freely distributable under the terms of the MIT license.
  *  Documentation: https://github.com/pavlovich/safe.accessors
- *  Version '1.0.3'
+ *  Version '1.0.4'
  */
 
 ;(function() {
@@ -47,7 +47,7 @@
     this._wrapped = value;
   }
 
-  sa.VERSION = '1.0.3';
+  sa.VERSION = '1.0.4';
   sa.isVoid   = require('./isVoid');
   sa.safeGet  = require('./safeGet');
   sa.safeSet  = require('./safeSet');

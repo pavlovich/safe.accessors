@@ -1,9 +1,9 @@
 // package metadata file for Meteor.js
 
 Package.describe({
-  name: 'safe.accessors:safe.accessors',
+  name: 'safeaccessors:safe.accessors',
   summary: 'safe.accessors (official): Safely get and set attribute values and execute functions.',
-  version: '1.0.3',
+  version: '1.0.4',
   git: 'https://github.com/pavlovich/safe.accessors.git',
   documentation: 'README.markdown'
 });
