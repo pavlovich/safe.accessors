@@ -14,10 +14,10 @@ require('../../index');
 
 describe('The safeGet utility function,', function(){
 
-  var DEFAUT_VAL = '___MyDeFaUlT_vAlUe___';
+  var DEFAULT_VAL = '___MyDeFaUlT_vAlUe___';
 
   it('should be a function', function () {
-    expect(typeof _.safeCall).to.equal("function");
+    expect(typeof _.safeGet).to.equal("function");
   });
 
   describe('given a null input object,', function(){
@@ -43,7 +43,7 @@ describe('The safeGet utility function,', function(){
     });
     describe('given a null path and non-null default,', function(){
       it('should return the default', function(){
-        expect(_.safeGet(null, null, DEFAUT_VAL)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(null, null, DEFAULT_VAL)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-null, empty path and no default,', function(){
@@ -58,12 +58,12 @@ describe('The safeGet utility function,', function(){
     });
     describe('given a non-null, empty path and non-null default,', function(){
       it('should return the default', function(){
-        expect(_.safeGet(null, '', DEFAUT_VAL)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(null, '', DEFAULT_VAL)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-null, empty path, a non-null default and allowing nulls,', function(){
       it('should return null', function(){
-        expect(_.safeGet(null, '', DEFAUT_VAL, true)).to.equal(null);
+        expect(_.safeGet(null, '', DEFAULT_VAL, true)).to.equal(null);
       });
     });
     describe('given a non-empty path,', function(){
@@ -73,17 +73,17 @@ describe('The safeGet utility function,', function(){
     });
     describe('given a non-empty path, a non-null default,', function(){
       it('should return the default', function(){
-        expect(_.safeGet(null, 'test', DEFAUT_VAL)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(null, 'test', DEFAULT_VAL)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-empty path, a non-null default and allowing nulls,', function(){
       it('should return the default', function(){
-        expect(_.safeGet(null, 'test', DEFAUT_VAL, true)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(null, 'test', DEFAULT_VAL, true)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-empty path, a non-null default and allowing nulls and undefineds,', function(){
       it('should return the default', function(){
-        expect(_.safeGet(null, 'test', DEFAUT_VAL, true, true)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(null, 'test', DEFAULT_VAL, true, true)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-empty path, an undefined and allowing nulls and undefineds,', function(){
@@ -131,7 +131,7 @@ describe('The safeGet utility function,', function(){
     });
     describe('given a null path and non-null default,', function(){
       it('should return the default', function(){
-        expect(_.safeGet(undefined, null, DEFAUT_VAL)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(undefined, null, DEFAULT_VAL)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-null, empty path and no default,', function(){
@@ -156,22 +156,22 @@ describe('The safeGet utility function,', function(){
     });
     describe('given a non-null, empty path and non-null default,', function(){
       it('should return the default', function(){
-        expect(_.safeGet(undefined, '', DEFAUT_VAL)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(undefined, '', DEFAULT_VAL)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-null, empty path, a non-null default and allowing nulls,', function(){
       it('should return the default', function(){
-        expect(_.safeGet(undefined, '', DEFAUT_VAL, true)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(undefined, '', DEFAULT_VAL, true)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-null, empty path, a non-null default and allowing nulls and undefineds,', function(){
       it('should return undefined', function(){
-        expect(_.safeGet(undefined, '', DEFAUT_VAL, true, true)).to.equal(undefined);
+        expect(_.safeGet(undefined, '', DEFAULT_VAL, true, true)).to.equal(undefined);
       });
     });
     describe('given a non-null, empty path, a non-null default and not allowing nulls but allowing undefineds,', function(){
       it('should return undefined', function(){
-        expect(_.safeGet(undefined, '', DEFAUT_VAL, false, true)).to.equal(undefined);
+        expect(_.safeGet(undefined, '', DEFAULT_VAL, false, true)).to.equal(undefined);
       });
     });
     describe('given a non-empty path,', function(){
@@ -181,17 +181,17 @@ describe('The safeGet utility function,', function(){
     });
     describe('given a non-empty path, a non-null default,', function(){
       it('should return the default', function(){
-        expect(_.safeGet(undefined, 'test', DEFAUT_VAL)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(undefined, 'test', DEFAULT_VAL)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-empty path, a non-null default and allowing nulls,', function(){
       it('should return the default', function(){
-        expect(_.safeGet(undefined, 'test', DEFAUT_VAL, true)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(undefined, 'test', DEFAULT_VAL, true)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-empty path, a non-null default and allowing nulls and undefineds,', function(){
       it('should return undefined', function(){
-        expect(_.safeGet(undefined, 'test', DEFAUT_VAL, true, true)).to.equal(undefined);
+        expect(_.safeGet(undefined, 'test', DEFAULT_VAL, true, true)).to.equal(undefined);
       });
     });
     describe('given a non-empty path, an undefined and allowing nulls and undefineds,', function(){
@@ -266,7 +266,7 @@ describe('The safeGet utility function,', function(){
     });
     describe('given a null path and non-null default,', function(){
       it('should return the TEST', function(){
-        expect(_.safeGet(TEST, null, DEFAUT_VAL)).to.equal(TEST);
+        expect(_.safeGet(TEST, null, DEFAULT_VAL)).to.equal(TEST);
       });
     });
     describe('given a non-null, empty path and no default,', function(){
@@ -281,22 +281,22 @@ describe('The safeGet utility function,', function(){
     });
     describe('given a non-null, empty path and non-null default,', function(){
       it('should return TEST', function(){
-        expect(_.safeGet(TEST, '', DEFAUT_VAL)).to.equal(TEST);
+        expect(_.safeGet(TEST, '', DEFAULT_VAL)).to.equal(TEST);
       });
     });
     describe('given a non-null, empty path, a non-null default and allowing nulls,', function(){
       it('should return the TEST', function(){
-        expect(_.safeGet(TEST, '', DEFAUT_VAL, true)).to.equal(TEST);
+        expect(_.safeGet(TEST, '', DEFAULT_VAL, true)).to.equal(TEST);
       });
     });
     describe('given a non-null, empty path, a non-null default and allowing nulls and undefineds,', function(){
       it('should return TEST', function(){
-        expect(_.safeGet(TEST, '', DEFAUT_VAL, true, true)).to.equal(TEST);
+        expect(_.safeGet(TEST, '', DEFAULT_VAL, true, true)).to.equal(TEST);
       });
     });
     describe('given a non-null, empty path, a non-null default and not allowing nulls but allowing undefineds,', function(){
       it('should return TEST', function(){
-        expect(_.safeGet(TEST, '', DEFAUT_VAL, false, true)).to.equal(TEST);
+        expect(_.safeGet(TEST, '', DEFAULT_VAL, false, true)).to.equal(TEST);
       });
     });
     describe('given a non-empty, unknown path,', function(){
@@ -306,17 +306,17 @@ describe('The safeGet utility function,', function(){
     });
     describe('given a non-empty, unknown path, a non-null default,', function(){
       it('should return the default', function(){
-        expect(_.safeGet(TEST, 'unknown', DEFAUT_VAL)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(TEST, 'unknown', DEFAULT_VAL)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-empty, unknown path, a non-null default and allowing nulls,', function(){
       it('should return the default', function(){
-        expect(_.safeGet(TEST, 'unknown', DEFAUT_VAL, true)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(TEST, 'unknown', DEFAULT_VAL, true)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-empty, unknown path, a non-null default and allowing nulls and undefineds,', function(){
       it('should return the default', function(){
-        expect(_.safeGet(TEST, 'unknown', DEFAUT_VAL, true, true)).to.equal(undefined);
+        expect(_.safeGet(TEST, 'unknown', DEFAULT_VAL, true, true)).to.equal(undefined);
       });
     });
     describe('given a non-empty, unknown path, an undefined and allowing nulls and undefineds,', function(){
@@ -356,7 +356,7 @@ describe('The safeGet utility function,', function(){
     });
     describe('given a non-empty, two-part, first known and second unknown path, an undefined default and allowing undefineds,', function(){
       it('should return undefined', function(){
-        expect(_.safeGet(TEST, 'one.unknown', DEFAUT_VAL, false, true)).to.equal(undefined);
+        expect(_.safeGet(TEST, 'one.unknown', DEFAULT_VAL, false, true)).to.equal(undefined);
       });
     });
     describe('given a non-empty, two-part, first known and second unknown path, a null default, not allowing nulls or undefineds,', function(){
@@ -371,7 +371,7 @@ describe('The safeGet utility function,', function(){
     });
     describe('given a non-empty, two-part, first known and second unknown path, a valid default value,', function(){
       it('should return the default value', function(){
-        expect(_.safeGet(TEST, 'one.unknown', DEFAUT_VAL)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(TEST, 'one.unknown', DEFAULT_VAL)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-empty, two-part, first known and second unknown path, an undefined default value,', function(){
@@ -381,12 +381,12 @@ describe('The safeGet utility function,', function(){
     });
     describe('given a non-empty, two-part, first known and second unknown path, an undefined default and not allowing undefineds,', function(){
       it('should return the default', function(){
-        expect(_.safeGet(TEST, 'one.unknown', DEFAUT_VAL, false, false)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(TEST, 'one.unknown', DEFAULT_VAL, false, false)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-empty, two-part, known first and second path,', function(){
       it('should return the requested value', function(){
-        expect(_.safeGet(TEST, 'one.two', DEFAUT_VAL)).to.equal(L2);
+        expect(_.safeGet(TEST, 'one.two', DEFAULT_VAL)).to.equal(L2);
       });
     });
     describe('given a non-empty, two-part, known first and second path, an undefined default and not allowing nulls or undefineds,', function(){
@@ -411,22 +411,22 @@ describe('The safeGet utility function,', function(){
     });
     describe('given a non-empty, two-part, known first and second path, a known and not allowing nulls or undefineds,', function(){
       it('should return the requested value', function(){
-        expect(_.safeGet(TEST, 'one.two', DEFAUT_VAL, false, false)).to.equal(L2);
+        expect(_.safeGet(TEST, 'one.two', DEFAULT_VAL, false, false)).to.equal(L2);
       });
     });
     describe('given a non-empty, two-part, known first and second path, a known and not allowing nulls but allowing undefineds,', function(){
       it('should return the requested value', function(){
-        expect(_.safeGet(TEST, 'one.two', DEFAUT_VAL, false, true)).to.equal(L2);
+        expect(_.safeGet(TEST, 'one.two', DEFAULT_VAL, false, true)).to.equal(L2);
       });
     });
     describe('given a non-empty, two-part, known first and second path, a known default and allowing nulls but not undefineds,', function(){
       it('should return the requested value', function(){
-        expect(_.safeGet(TEST, 'one.two', DEFAUT_VAL, true, false)).to.equal(L2);
+        expect(_.safeGet(TEST, 'one.two', DEFAULT_VAL, true, false)).to.equal(L2);
       });
     });
     describe('given a non-empty, two-part, known first and second path, a known default and allowing nulls or undefineds,', function(){
       it('should return the requested value', function(){
-        expect(_.safeGet(TEST, 'one.two', DEFAUT_VAL, true, true)).to.equal(L2);
+        expect(_.safeGet(TEST, 'one.two', DEFAULT_VAL, true, true)).to.equal(L2);
       });
     });
     describe('given a non-empty, known two-part path to a valid primitive string object,', function(){
@@ -481,57 +481,57 @@ describe('The safeGet utility function,', function(){
     });
     describe('given a non-empty, three-part, known first and second but unknown third path, a known default,', function(){
       it('should return the undefined', function(){
-        expect(_.safeGet(TEST, 'one.two.unknown', DEFAUT_VAL)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(TEST, 'one.two.unknown', DEFAULT_VAL)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-empty, three-part, known first and second but unknown third path, a known default and allowing nulls,', function(){
       it('should return the undefined', function(){
-        expect(_.safeGet(TEST, 'one.two.unknown', DEFAUT_VAL, true)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(TEST, 'one.two.unknown', DEFAULT_VAL, true)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-empty, three-part, known first and second but unknown third path, a known default and not allowing nulls,', function(){
       it('should return the undefined', function(){
-        expect(_.safeGet(TEST, 'one.two.unknown', DEFAUT_VAL, false)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(TEST, 'one.two.unknown', DEFAULT_VAL, false)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-empty, three-part, known first and second but unknown third path, a known default and allowing not allowingundefineds,', function(){
       it('should return the undefined', function(){
-        expect(_.safeGet(TEST, 'one.two.unknown', DEFAUT_VAL, undefined, false)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(TEST, 'one.two.unknown', DEFAULT_VAL, undefined, false)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-empty, three-part, known first and second but unknown third path, a known default and allowing undefineds,', function(){
       it('should return the undefined', function(){
-        expect(_.safeGet(TEST, 'one.two.unknown', DEFAUT_VAL, undefined, true)).to.equal(undefined);
+        expect(_.safeGet(TEST, 'one.two.unknown', DEFAULT_VAL, undefined, true)).to.equal(undefined);
       });
     });
     describe('given a non-empty, three-part, known first and second but unknown third path, a known default and allowing nulls,', function(){
       it('should return null', function(){
-        expect(_.safeGet(TEST, 'one.two.unknown', DEFAUT_VAL, true, undefined)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(TEST, 'one.two.unknown', DEFAULT_VAL, true, undefined)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-empty, three-part, known first and second but unknown third path, a known default and not allowing nulls,', function(){
       it('should return null', function(){
-        expect(_.safeGet(TEST, 'one.two.unknown', DEFAUT_VAL, false, undefined)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(TEST, 'one.two.unknown', DEFAULT_VAL, false, undefined)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-empty, three-part, known first and second but unknown third path, a known default and allowing nulls and undefineds,', function(){
       it('should return undefined', function(){
-        expect(_.safeGet(TEST, 'one.two.unknown', DEFAUT_VAL, true, true)).to.equal(undefined);
+        expect(_.safeGet(TEST, 'one.two.unknown', DEFAULT_VAL, true, true)).to.equal(undefined);
       });
     });
     describe('given a non-empty, three-part, known first and second but unknown third path, a known default and allowing nulls but not undefineds,', function(){
       it('should return null', function(){
-        expect(_.safeGet(TEST, 'one.two.unknown', DEFAUT_VAL, true, false)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(TEST, 'one.two.unknown', DEFAULT_VAL, true, false)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-empty, three-part, known first and second but unknown third path, a known default and not allowing nulls but allowing undefineds,', function(){
       it('should return undefined', function(){
-        expect(_.safeGet(TEST, 'one.two.unknown', DEFAUT_VAL, false, true)).to.equal(undefined);
+        expect(_.safeGet(TEST, 'one.two.unknown', DEFAULT_VAL, false, true)).to.equal(undefined);
       });
     });
     describe('given a non-empty, three-part, known first and second but unknown third path, a known default and not allowing nulls or undefineds,', function(){
       it('should return null', function(){
-        expect(_.safeGet(TEST, 'one.two.unknown', DEFAUT_VAL, false, false)).to.equal(DEFAUT_VAL);
+        expect(_.safeGet(TEST, 'one.two.unknown', DEFAULT_VAL, false, false)).to.equal(DEFAULT_VAL);
       });
     });
     describe('given a non-empty, known three-part path to a valid object,', function(){
@@ -556,12 +556,12 @@ describe('The safeGet utility function,', function(){
     });
     describe('given a non-empty, known three-part path to a valid object and a non-null default,', function(){
       it('should return the requested object', function(){
-        expect(_.safeGet(TEST, 'one.two.three', DEFAUT_VAL)).to.equal(L3);
+        expect(_.safeGet(TEST, 'one.two.three', DEFAULT_VAL)).to.equal(L3);
       });
     });
     describe('given a non-empty, known three-part path to a valid primitive string object and a non-null default,', function(){
       it('should return the requested object', function(){
-        expect(_.safeGet(TEST, 'one.two.test', DEFAUT_VAL)).to.equal(t2);
+        expect(_.safeGet(TEST, 'one.two.test', DEFAULT_VAL)).to.equal(t2);
       });
     });
     describe('given a non-empty, known four-part path to a valid object,', function(){
@@ -621,27 +621,27 @@ describe('The safeGet utility function,', function(){
     });
     describe('given a non-empty, known four-part path to a valid object, non-null default,', function(){
       it('should return the requested object', function(){
-        expect(_.safeCall(TEST, 'one.two.three.four', DEFAUT_VAL)).to.equal(t4);
+        expect(_.safeCall(TEST, 'one.two.three.four', DEFAULT_VAL)).to.equal(t4);
       });
     });
     describe('given a non-empty, known four-part path to a valid truth, non-null default,', function(){
       it('should return true', function(){
-        expect(_.safeCall(TEST, 'one.two.three.truth', DEFAUT_VAL)).to.equal(true);
+        expect(_.safeCall(TEST, 'one.two.three.truth', DEFAULT_VAL)).to.equal(true);
       });
     });
     describe('given a non-empty, known four-part path to a valid falseness, non-null default,', function(){
       it('should return false', function(){
-        expect(_.safeCall(TEST, 'one.two.three.falseness', DEFAUT_VAL)).to.equal(false);
+        expect(_.safeCall(TEST, 'one.two.three.falseness', DEFAULT_VAL)).to.equal(false);
       });
     });
     describe('given a non-empty, known four-part path to a valid number, non-null default,', function(){
       it('should return true', function(){
-        expect(_.safeCall(TEST, 'one.two.three.number', DEFAUT_VAL)).to.equal(23);
+        expect(_.safeCall(TEST, 'one.two.three.number', DEFAULT_VAL)).to.equal(23);
       });
     });
     describe('given a non-empty, known four-part path to a valid string, non-null default,', function(){
       it('should return the string', function(){
-        expect(_.safeCall(TEST, 'one.two.three.aString', DEFAUT_VAL)).to.equal('aString');
+        expect(_.safeCall(TEST, 'one.two.three.aString', DEFAULT_VAL)).to.equal('aString');
       });
     });
 

@@ -30,7 +30,7 @@ gulp.task('test', ['browserify'], function(cov) {
     reporters.push('text-summary');
   }
 
-  return gulp.src(['isVoid.js', 'safeGet.js', 'safeCall.js'])
+  return gulp.src(['isVoid.js', 'safeGet.js', 'safeCall.js', 'safeSet.js'])
     .pipe(istanbul())
     .pipe(istanbul.hookRequire())
     .on('finish', function () {

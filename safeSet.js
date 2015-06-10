@@ -4,29 +4,47 @@
 
 var _ = require('lodash');
 
-module.exports = function safeSet(obj, path, value, overwrite){
-  var result = value;
+var isValidString = function(obj){
+  return !_.isVoid(obj) && !_.isEmpty(obj);
+};
+
+module.exports = function safeSet(obj, path, value, overwrite, returnValueSet){
+  var target = _.isVoid(obj) ? {} : obj;
+  var result = returnValueSet ? value : target;
   var shouldOverwrite = _.isVoid(overwrite) ? true : overwrite;
+  if(!isValidString(path)){
+    return overwrite ? value : (returnValueSet ? value : target);
+  }
   var pathComponents = path.split('.');
   _.reduce(pathComponents,
     function(memo, key){
-      if(this == key){
-        if(_.isVoid(memo[key])){
-          if(shouldOverwrite){
+      if(isValidString(key)) {
+        if (this == key) {
+          if (_.isVoid(memo[key])) {
             memo[key] = value;
+            result = value;
+          } else {
+            if (shouldOverwrite) {
+              memo[key] = value;
+              result = value;
+            } else {
+              result = memo[key];
+            }
           }
-          result = memo[key];
           return result;
+        }else{
+          if(_.isVoid(memo[key])){
+            memo[key] = {};
+            return memo[key];
+          }else{
+            return memo[key];
+          }
         }
-        memo[key] = value;
-        return value;
       }else{
-        if(!_.isVoid(memo[key])){
-          memo[key] = {};
-        }
-        return memo[key];
+        console.log('path provided contains a null/empty component: ' + path);
+        return memo;
       }
-    }, obj, _.last(pathComponents));
+    }, target, _.last(pathComponents));
 
-  return result;
+  return returnValueSet ? result : target;
 };
