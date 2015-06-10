@@ -13,12 +13,12 @@
     "url": "https://github.com/pavlovich/safe.accessors.git"
   },
   "dependencies": {
-    "lodash": "^3.7.0"
   },
   "directories": {
     "lib": "./"
   },
   "devDependencies": {
+    "lodash": "^3.7.0",
     "browser-sync": "^1.6.5",
     "browserify": "^5.9.3",
     "chai": "^1.9.1",

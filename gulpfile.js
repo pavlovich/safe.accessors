@@ -30,11 +30,11 @@ gulp.task('test', ['browserify'], function(cov) {
     reporters.push('text-summary');
   }
 
-  return gulp.src(['isVoid.js', 'safeGet.js', 'safeCall.js', 'safeSet.js'])
+  return gulp.src(['index.js'])
     .pipe(istanbul())
     .pipe(istanbul.hookRequire())
     .on('finish', function () {
-      return gulp.src(['test/specs/*.js'])
+      return gulp.src(['test/specs/*.spec.js'])
         .pipe(
           mocha({
             globals: '*',
@@ -86,7 +86,7 @@ gulp.task('bump', ['bump-in-js'], function(semver) {
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('build', ['test', 'clean'], function() {
+gulp.task('build', function() {
   gulp.src(DEST + '/' + SRC_COMPILED)
     .pipe(uglify())
     .pipe(rename(MIN_FILE))

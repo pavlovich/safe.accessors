@@ -8,9 +8,11 @@ var assert = chai.assert,
   expect = chai.expect,
   should = chai.should();
 
-var _ = require('lodash');
+
+_ = require('lodash');
 
 require('../../index');
+
 
 describe('The safeGet utility function,', function(){
 

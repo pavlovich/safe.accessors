@@ -338,10 +338,9 @@ var assert = chai.assert,
   expect = chai.expect,
   should = chai.should();
 
-var _ = require('lodash');
+_ = require('lodash');
 
 require('../../index');
-
 
 var unwrapStringOrNumber = function unwrapStringOrNumber(obj) {
   return (obj instanceof Number || obj instanceof String
