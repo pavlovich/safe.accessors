@@ -2,7 +2,7 @@
  * safe.accessors (c) 2016 Peter Pavlovich <pavlovich@gmail.com>
  *  safe.accessors is freely distributable under the terms of the MIT license.
  *  Documentation: https://github.com/pavlovich/safe.accessors
- *  Version 'null'
+ *  Version '1.0.9'
  */
 
 ;(function() {

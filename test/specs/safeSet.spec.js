@@ -223,6 +223,14 @@ describe('The safeSet utility function,', function() {
         })
       });
 
+      describe('xxx', function(){
+        it('should work', function(){
+          var peter = 'hello';
+          var res = _.safeSet({}, 'a.b.c', peter);
+          expect(res.a.b.c).to.equal(peter)
+        })
+      })
+
       describe('and an unknown path', function(){
         describe('to a previously undefined attribute', function(){
           describe('with a null value to set', function(){

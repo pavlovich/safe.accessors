@@ -1,8 +1,8 @@
 /**
- * safe.accessors (c) 2015 Peter Pavlovich <pavlovich@gmail.com>
+ * safe.accessors (c) 2016 Peter Pavlovich <pavlovich@gmail.com>
  *  safe.accessors is freely distributable under the terms of the MIT license.
  *  Documentation: https://github.com/pavlovich/safe.accessors
- *  Version '1.0.7'
+ *  Version '1.0.9'
  */
 
 ;(function() {
@@ -128,13 +128,15 @@
     var result = returnValueSet ? value : target;
     var shouldOverwrite = _.isVoid(overwrite) ? true : overwrite;
     if(!isValidString(path)){
+      //TODO I think this is wrong.
       return overwrite ? value : (returnValueSet ? value : target);
     }
     var pathComponents = path.split('.');
+    var lastComponent = _.last(pathComponents);
     _.reduce(pathComponents,
       function(memo, key){
         if(isValidString(key)) {
-          if (this === key) {
+          if (lastComponent === key) {
             if (_.isVoid(memo[key])) {
               memo[key] = value;
               result = value;
@@ -159,12 +161,12 @@
           console.log('path provided contains a null/empty component: ' + path);
           return memo;
         }
-      }, target, _.last(pathComponents));
+      }, target);
 
     return returnValueSet ? result : target;
   };
 
-  sa.VERSION = '1.0.7';
+  sa.VERSION = 'null';
   sa.isVoid   = isVoid;
   sa.safeGet  = safeGet;
   sa.safeSet  = safeSet;
