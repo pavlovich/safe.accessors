@@ -2,7 +2,7 @@
  * safe.accessors (c) 2015 Peter Pavlovich <pavlovich@gmail.com>
  *  safe.accessors is freely distributable under the terms of the MIT license.
  *  Documentation: https://github.com/pavlovich/safe.accessors
- *  Version '1.0.6'
+ *  Version '1.0.7'
  */
 
 ;(function() {
@@ -134,7 +134,7 @@
     _.reduce(pathComponents,
       function(memo, key){
         if(isValidString(key)) {
-          if (this == key) {
+          if (this === key) {
             if (_.isVoid(memo[key])) {
               memo[key] = value;
               result = value;
@@ -164,7 +164,7 @@
     return returnValueSet ? result : target;
   };
 
-  sa.VERSION = '1.0.6';
+  sa.VERSION = '1.0.7';
   sa.isVoid   = isVoid;
   sa.safeGet  = safeGet;
   sa.safeSet  = safeSet;

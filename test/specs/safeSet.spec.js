@@ -164,14 +164,7 @@ describe('The safeSet utility function,', function() {
             });
             describe('and overwrite set to true', function(){
               it('should set the value of the attribute to null and return the object', function(){
-                var res = _.safeSet(DEFAULT_VAL, 'a.aa.aaa.aaaa', null);
-                expect(res).to.equal(DEFAULT_VAL);
-                expect(res.a.aa.aaa.aaaa).to.equal(null);
-              });
-            });
-            describe('and overwrite set to true', function(){
-              it('should set the value of the attribute to null and return the object', function(){
-                var res = _.safeSet(DEFAULT_VAL, 'a.aa.aaa.aaaa', null);
+                var res = _.safeSet(DEFAULT_VAL, 'a.aa.aaa.aaaa', null, true);
                 expect(res).to.equal(DEFAULT_VAL);
                 expect(res.a.aa.aaa.aaaa).to.equal(null);
               });
@@ -193,7 +186,7 @@ describe('The safeSet utility function,', function() {
             });
             describe('and overwrite set to true', function(){
               it('should set the value of the attribute to the non-null and return the object', function(){
-                var res = _.safeSet(DEFAULT_VAL, 'a.aa.aaa.aaaa', NON_NULL);
+                var res = _.safeSet(DEFAULT_VAL, 'a.aa.aaa.aaaa', NON_NULL, true);
                 expect(res).to.equal(DEFAULT_VAL);
                 expect(res.a.aa.aaa.aaaa).to.equal(NON_NULL);
               });
